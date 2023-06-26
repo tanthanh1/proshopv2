@@ -1,3 +1,4 @@
+"use client";
 import Link from "next/link";
 
 const Product = ({ product }) => {
@@ -7,7 +8,7 @@ const Product = ({ product }) => {
                 <img src={product.image} alt="" />
                 <Link
                     className="text-center mt-5 block font-bold"
-                    href={`/product/${product.name}`}
+                    href={`/product/${product._id}`}
                 >
                     {product.name}
                 </Link>

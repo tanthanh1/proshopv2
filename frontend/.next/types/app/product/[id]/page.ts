@@ -1,8 +1,8 @@
-// File: /Users/dougkringle/Documents/proshop/frontend/app/product/[name]/page.js
-import * as entry from '../../../../../app/product/[name]/page.js'
+// File: /Users/dougkringle/Documents/proshop/frontend/app/product/[id]/page.js
+import * as entry from '../../../../../app/product/[id]/page.js'
 import type { ResolvingMetadata } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
-type TEntry = typeof import('../../../../../app/product/[name]/page.js')
+type TEntry = typeof import('../../../../../app/product/[id]/page.js')
 
 // Check that the entry is a valid entry
 checkFields<Diff<{
