@@ -5,6 +5,7 @@
   "main": "server.js",
   "type": "module",
   "scripts": {
+    "learn": "nodemon backend/learn.js",
     "start": "node backend/server.js",
     "server": "nodemon backend/server.js",
     "client": "npm run dev --prefix frontend",
@@ -21,10 +22,19 @@
   },
   "homepage": "https://github.com/tanthanh1/proshopv2#readme",
   "dependencies": {
+    "bcrypt": "^5.1.0",
+    "colors": "^1.4.0",
     "concurrently": "^8.2.0",
+    "cookie-parser": "^1.4.6",
     "dotenv": "^16.3.1",
     "env": "^0.0.2",
     "express": "^4.18.2",
-    "nodemon": "^2.0.22"
+    "express-async-handler": "^1.2.0",
+    "jsonwebtoken": "^9.0.1",
+    "mongoose": "^7.3.1",
+    "nodemon": "^2.0.22",
+    "react-icons": "^4.10.1",
+    "react-redux": "^8.1.1",
+    "redux": "^4.2.1"
   }
 }

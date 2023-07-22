@@ -1,0 +1,12 @@
+###
+http://localhost:5005/api/products/1caca
+
+###
+http://localhost:5005/api/products/
+
+### 
+http://localhost:5005/api/products/649e5172e25e81a7c2b8494a
+
+
+### Test 404 error, no routes match
+http://localhost:5005/api/productwrong

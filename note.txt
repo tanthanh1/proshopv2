@@ -1,0 +1,5 @@
+mongodb
+user: tanthanh1
+pass: BjQkl9VHweTnEWQN
+
+mongodb+srv://tanthanh1:BjQkl9VHweTnEWQN@cluster0.k47z5ii.mongodb.net/

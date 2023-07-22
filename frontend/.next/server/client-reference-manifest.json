@@ -56,9 +56,17 @@
         "async": false
       }
     },
-    "(app-client)/./app/components/Header.js": {
+    "(app-client)/./app/components/Product.js": {
       "*": {
-        "id": "(sc_client)/./app/components/Header.js",
+        "id": "(sc_client)/./app/components/Product.js",
+        "name": "*",
+        "chunks": [],
+        "async": false
+      }
+    },
+    "(app-client)/./app/page.js": {
+      "*": {
+        "id": "(sc_client)/./app/page.js",
         "name": "*",
         "chunks": [],
         "async": false
@@ -72,17 +80,41 @@
         "async": false
       }
     },
-    "(app-client)/./app/components/Product.js": {
+    "(app-client)/./app/components/Header.js": {
       "*": {
-        "id": "(sc_client)/./app/components/Product.js",
+        "id": "(sc_client)/./app/components/Header.js",
         "name": "*",
         "chunks": [],
         "async": false
       }
     },
-    "(app-client)/./app/page.js": {
+    "(app-client)/./app/redux/provider.js": {
       "*": {
-        "id": "(sc_client)/./app/page.js",
+        "id": "(sc_client)/./app/redux/provider.js",
+        "name": "*",
+        "chunks": [],
+        "async": false
+      }
+    },
+    "(app-client)/./app/redux/store.js": {
+      "*": {
+        "id": "(sc_client)/./app/redux/store.js",
+        "name": "*",
+        "chunks": [],
+        "async": false
+      }
+    },
+    "(app-client)/./app/slices/cartSlice.js": {
+      "*": {
+        "id": "(sc_client)/./app/slices/cartSlice.js",
+        "name": "*",
+        "chunks": [],
+        "async": false
+      }
+    },
+    "(app-client)/./app/product/[id]/page.js": {
+      "*": {
+        "id": "(sc_client)/./app/product/[id]/page.js",
         "name": "*",
         "chunks": [],
         "async": false
@@ -251,11 +283,19 @@
       ],
       "async": false
     },
-    "/Users/dougkringle/Documents/proshop/frontend/app/components/Header.js": {
-      "id": "(app-client)/./app/components/Header.js",
+    "/Users/dougkringle/Documents/proshop/frontend/app/components/Product.js": {
+      "id": "(app-client)/./app/components/Product.js",
       "name": "*",
       "chunks": [
-        "app/layout:static/chunks/app/layout.js"
+        "app/page:static/chunks/app/page.js"
+      ],
+      "async": false
+    },
+    "/Users/dougkringle/Documents/proshop/frontend/app/page.js": {
+      "id": "(app-client)/./app/page.js",
+      "name": "*",
+      "chunks": [
+        "app/page:static/chunks/app/page.js"
       ],
       "async": false
     },
@@ -275,24 +315,52 @@
       ],
       "async": false
     },
-    "/Users/dougkringle/Documents/proshop/frontend/app/components/Product.js": {
-      "id": "(app-client)/./app/components/Product.js",
+    "/Users/dougkringle/Documents/proshop/frontend/app/components/Header.js": {
+      "id": "(app-client)/./app/components/Header.js",
       "name": "*",
       "chunks": [
-        "app/page:static/chunks/app/page.js"
+        "app/layout:static/chunks/app/layout.js"
       ],
       "async": false
     },
-    "/Users/dougkringle/Documents/proshop/frontend/app/page.js": {
-      "id": "(app-client)/./app/page.js",
+    "/Users/dougkringle/Documents/proshop/frontend/app/redux/provider.js": {
+      "id": "(app-client)/./app/redux/provider.js",
       "name": "*",
       "chunks": [
-        "app/page:static/chunks/app/page.js"
+        "app/layout:static/chunks/app/layout.js"
+      ],
+      "async": false
+    },
+    "/Users/dougkringle/Documents/proshop/frontend/app/redux/store.js": {
+      "id": "(app-client)/./app/redux/store.js",
+      "name": "*",
+      "chunks": [
+        "app/layout:static/chunks/app/layout.js"
+      ],
+      "async": false
+    },
+    "/Users/dougkringle/Documents/proshop/frontend/app/slices/cartSlice.js": {
+      "id": "(app-client)/./app/slices/cartSlice.js",
+      "name": "*",
+      "chunks": [
+        "app/product/[id]/page:static/chunks/app/product/[id]/page.js"
+      ],
+      "async": false
+    },
+    "/Users/dougkringle/Documents/proshop/frontend/app/product/[id]/page.js": {
+      "id": "(app-client)/./app/product/[id]/page.js",
+      "name": "*",
+      "chunks": [
+        "app/product/[id]/page:static/chunks/app/product/[id]/page.js"
       ],
       "async": false
     }
   },
   "entryCSSFiles": {
+    "/Users/dougkringle/Documents/proshop/frontend/app/page": {
+      "modules": [],
+      "files": []
+    },
     "/Users/dougkringle/Documents/proshop/frontend/app/layout": {
       "modules": [
         "/Users/dougkringle/Documents/proshop/frontend/app/globals.css",
@@ -302,11 +370,15 @@
         "static/css/app/layout.css"
       ]
     },
-    "/Users/dougkringle/Documents/proshop/frontend/app/page": {
+    "/Users/dougkringle/Documents/proshop/frontend/app/loading": {
       "modules": [],
       "files": []
     },
     "/Users/dougkringle/Documents/proshop/frontend/app/not-found": {
+      "modules": [],
+      "files": []
+    },
+    "/Users/dougkringle/Documents/proshop/frontend/app/product/[id]/page": {
       "modules": [],
       "files": []
     }

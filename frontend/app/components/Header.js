@@ -1,6 +1,13 @@
 "use client";
 import Link from "next/link";
+import { useSelector } from "react-redux";
+import { Navbar, Nav, Container, NavDropdown, Badge } from "react-bootstrap";
+
 const Header = () => {
+    const { cartItems } = useSelector((state) => state.cart);
+    let itemQty = 0;
+    cartItems.map((x) => (itemQty = itemQty + x.qty));
+
     return (
         <>
             <div className="bg-primary-color">
@@ -19,7 +26,10 @@ const Header = () => {
                                 Search
                             </button>
                             <Link className="self-center" href="/cart">
-                                Cart
+                                Cart{" "}
+                                <Badge pill bg="success">
+                                    {cartItems.reduce((a, c) => a + c.qty, 0)}
+                                </Badge>
                             </Link>
                             <Link className="self-center" href="/signin">
                                 Sign In
