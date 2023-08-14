@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import Rating from "./Rating";
 
 const Product = ({ product }) => {
     return (
@@ -12,6 +13,9 @@ const Product = ({ product }) => {
                     <img className="mb-4" src={product.image} alt="" />
                     {product.name}
                 </Link>
+                <p>
+                    <Rating score={product.rating} />{" "}
+                </p>
                 <p className="text-center mt-2 font-medium text-[24px] text-[#7b8a8b]">
                     $ {product.price}
                 </p>

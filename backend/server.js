@@ -5,6 +5,7 @@ import cookieParser from "cookie-parser";
 import connectDB from "./config/db.js";
 import productRouters from "./routes/productRoutes.js";
 import userRouters from "./routes/userRoutes.js";
+import orderRouters from "./routes/orderRoutes.js";
 import { notFound, errorHandler } from "./middleware/errorMiddleware.js";
 
 dotenv.config();
@@ -20,7 +21,13 @@ app.use(cookieParser());
 
 // Add Access-Control-Allow-Origin to request
 app.use(function (req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Origin", "http://localhost:3000");
+    res.header("Access-Control-Allow-Credentials", true);
+    res.header(
+        "Access-Control-Allow-Methods",
+        "POST, PUT, GET, OPTIONS,DELETE"
+    );
+    // res.header("Access-Control-Allow-Credentials");
     res.header(
         "Access-Control-Allow-Headers",
         "Origin, X-Requested-With, Content-Type, Accept"
@@ -31,6 +38,7 @@ app.use(function (req, res, next) {
 app.get("/", (req, res) => res.send("API is running"));
 app.use("/api/products", productRouters);
 app.use("/api/users", userRouters);
+app.use("/api/orders", orderRouters);
 app.use(notFound);
 app.use(errorHandler);
 
