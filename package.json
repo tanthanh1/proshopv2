@@ -37,5 +37,10 @@
     "react-icons": "^4.10.1",
     "react-redux": "^8.1.1",
     "redux": "^4.2.1"
+  },
+  "engines": {
+    "node": ">=14 <15"
   }
+  
 }
+
