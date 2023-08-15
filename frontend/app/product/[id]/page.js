@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "../../slices/cartSlice";
 import { useGetProductByIdQuery } from "../../slices/apiSlice";
 import Loading from "../../loading";
+import Rating from "../../components/Rating";
 
 const page = ({ params }) => {
     console.log(params);
@@ -53,6 +54,7 @@ const page = ({ params }) => {
                             <h3 className="font-medium text-2xl">
                                 {product.name}
                             </h3>
+                            <Rating score={product.rating} />
                             <p>{product.description}</p>
                         </div>
 
