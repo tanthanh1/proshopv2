@@ -5,9 +5,25 @@ import { updateCart } from "../utils/cartUtils";
 
 import { useEffect } from "react";
 
-const initialState = localStorage.getItem("cart")
-    ? JSON.parse(localStorage.getItem("cart"))
-    : { cartItems: [], shippingAddress: {}, paymentMethod: "Cash" };
+// const initialState = window?.localStorage?.getItem("cart")
+//     ? JSON.parse(localStorage.getItem("cart"))
+//     : { cartItems: [], shippingAddress: {}, paymentMethod: "Cash" };
+
+const initialState = {
+    cartItems: [],
+    shippingAddress: {},
+    paymentMethod: "Cash",
+};
+
+if (typeof window !== "undefined") {
+    const localState = localStorage.getItem("cart")
+        ? JSON.parse(localStorage.getItem("cart"))
+        : { cartItems: [], shippingAddress: {}, paymentMethod: "Cash" };
+
+    initialState.cartItems = [...localState.cartItems];
+    initialState.shippingAddress = { ...localState.shippingAddress };
+    initialState.paymentMethod = localState.paymentMethod;
+}
 
 const cartSlice = createSlice({
     name: "cart",
@@ -16,7 +32,6 @@ const cartSlice = createSlice({
         addToCart: (state, action) => {
             const item = action.payload;
             const exitsItem = state.cartItems.find((x) => x._id === item._id);
-
             if (exitsItem) {
                 state.cartItems = state.cartItems.map((x) =>
                     x._id === item._id ? item : x
