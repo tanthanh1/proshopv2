@@ -1,4 +1,5 @@
 import express from "express";
+import path from "path";
 import products from "./data/products.js";
 import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
@@ -35,11 +36,21 @@ app.use(function (req, res, next) {
     next();
 });
 
-app.get("/", (req, res) => res.send("API is running"));
-
 app.use("/api/products", productRouters);
 app.use("/api/users", userRouters);
 app.use("/api/orders", orderRouters);
+
+if (process.env.NODE_ENV === "production") {
+    const __dirname = path.resolve();
+    app.use("/uploads", express.static("/var/data/uploads"));
+    app.use(express.static(path.join(__dirname, "/frontend/build")));
+
+    app.get("*", (req, res) =>
+        res.sendFile(path.resolve(__dirname, "frontend", "out/", "index.html"))
+    );
+} else {
+    app.get("/", (req, res) => res.send("API is running"));
+}
 
 app.use(notFound);
 app.use(errorHandler);
