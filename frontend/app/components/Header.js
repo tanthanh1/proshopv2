@@ -15,7 +15,7 @@ import { Fragment } from "react";
 // }
 
 const Header = () => {
-    console.log("This is Header");
+    console.log("This is Header", process.env.NEXT_PUBLIC_BASE_URL);
     const dispatch = useDispatch();
     const { cartItems } = useSelector((state) => state.cart);
     let itemQty = 0;
