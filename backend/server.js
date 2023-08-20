@@ -22,7 +22,10 @@ app.use(cookieParser());
 
 // Add Access-Control-Allow-Origin to request
 app.use(function (req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
+    res.header(
+        "Access-Control-Allow-Origin",
+        "https://proshopv2-git-main-tanthanh1.vercel.app"
+    );
     res.header("Access-Control-Allow-Credentials", true);
     res.header(
         "Access-Control-Allow-Methods",
