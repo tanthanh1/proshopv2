@@ -24,7 +24,8 @@ app.use(cookieParser());
 app.use(function (req, res, next) {
     res.header(
         "Access-Control-Allow-Origin",
-        "https://proshopv2-git-main-tanthanh1.vercel.app"
+        // "https://proshopv2-git-main-tanthanh1.vercel.app"
+        "http://localhost:3000"
     );
     res.header("Access-Control-Allow-Credentials", true);
     res.header(

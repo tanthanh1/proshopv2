@@ -11,6 +11,7 @@ export const apiSlice = createApi({
         getProducts: builder.query({ query: () => "/products" }),
 
         getProductById: builder.query({ query: (id) => `/products/${id}` }),
+
         loginUser: builder.mutation({
             query: (data) => ({
                 url: "/users/auth",
