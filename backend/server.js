@@ -1,4 +1,5 @@
 import express from "express";
+import cors from "cors";
 import path from "path";
 import products from "./data/products.js";
 import dotenv from "dotenv";
@@ -20,12 +21,20 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
+// const corsOptions = {
+//     origin: "http://localhost:3000",
+//     credentials: true,
+// };
+
+// app.use(cors(corsOptions));
+
 // Add Access-Control-Allow-Origin to request
 app.use(function (req, res, next) {
     res.header(
         "Access-Control-Allow-Origin",
+        // "*"
         // "https://proshopv2-git-main-tanthanh1.vercel.app"
-        "http://localhost:3000"
+        process.env.CORS_URL
     );
     res.header("Access-Control-Allow-Credentials", true);
     res.header(
