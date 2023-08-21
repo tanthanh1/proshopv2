@@ -18,14 +18,14 @@ const Header = () => {
     // console.log("This is Header", process.env.NEXT_PUBLIC_BASE_URL);
     const dispatch = useDispatch();
     const { cartItems } = useSelector((state) => state.cart);
-    console.log(cartItems);
+    // console.log(cartItems);
     let itemQty = 0;
     cartItems.map((x) => (itemQty = itemQty + x.qty));
 
     // const { data, isLoading, error } = useGetProfileQuery();
 
     const { userInfo } = useSelector((state) => state.auth);
-    console.log(userInfo);
+    // console.log(userInfo);
 
     const logoutHandler = (e) => {
         e.preventDefault();
