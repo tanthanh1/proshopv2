@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useCreateOrderMutation } from "../slices/apiSlice";
 import { clearCart } from "../slices/cartSlice";
 import { useRouter } from "next/navigation";
+import Loading from "../loading";
 const page = () => {
     const {
         paymentMethod,
@@ -36,7 +37,7 @@ const page = () => {
 
     // const { _id, name } = useSelector((state) => state.auth.userInfo);
 
-    const [createOrder, res] = useCreateOrderMutation();
+    const [createOrder, { isLoading }] = useCreateOrderMutation();
     const clickOrderHandler = async () => {
         try {
             const result = await createOrder({
@@ -59,6 +60,7 @@ const page = () => {
 
     return (
         <div>
+            {isLoading && <Loading />}
             {paymentMethod}
             <button onClick={clickOrderHandler}> Order </button>
         </div>
