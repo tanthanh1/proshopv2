@@ -8,6 +8,7 @@ if (typeof window !== "undefined") {
             ? JSON.parse(localStorage.getItem("userInfo"))
             : {},
     };
+    initialState.userInfo = { ...localState.userInfo };
 }
 
 const authSlice = createSlice({
