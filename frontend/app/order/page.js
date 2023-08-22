@@ -4,6 +4,7 @@ import { useCreateOrderMutation } from "../slices/apiSlice";
 import { clearCart } from "../slices/cartSlice";
 import { useRouter } from "next/navigation";
 import Loading from "../loading";
+import { useState } from "react";
 const page = () => {
     const {
         paymentMethod,
@@ -25,6 +26,7 @@ const page = () => {
 
     const dispatch = useDispatch();
     const router = useRouter();
+    const [isOrdered, setIsOrdered] = useState(false);
 
     const orderItems = cartItems.map(({ name, qty, _id: product, image }) => ({
         name,
@@ -39,6 +41,7 @@ const page = () => {
 
     const [createOrder, { isLoading }] = useCreateOrderMutation();
     const clickOrderHandler = async () => {
+        setIsOrdered(true);
         try {
             const result = await createOrder({
                 paymentMethod,
@@ -60,9 +63,18 @@ const page = () => {
 
     return (
         <div>
-            {isLoading && <Loading />}
-            {paymentMethod}
-            <button onClick={clickOrderHandler}> Order </button>
+            {!isOrdered && (
+                <div>
+                    {paymentMethod}
+                    <button onClick={clickOrderHandler}> Order </button>
+                </div>
+            )}
+            {/* <Loading /> */}
+            {isLoading && (
+                <div className="text-blue-800">
+                    Your Order is processing ...{" "}
+                </div>
+            )}
         </div>
     );
 };
