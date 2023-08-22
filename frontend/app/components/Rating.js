@@ -7,10 +7,15 @@ const Rating = ({ score }) => {
             <div className="flex">
                 {[...Array(5).keys()].map((x) => {
                     if (Number(score) >= x + 1)
-                        return <FaStar className="text-yellow-400" />;
+                        return <FaStar key={x} className="text-yellow-400" />;
                     if (Number(score) % 1 >= 0.5 && Number(score) > x)
-                        return <FaStarHalfAlt className="text-yellow-400" />;
-                    return <FaRegStar className="text-yellow-400" />;
+                        return (
+                            <FaStarHalfAlt
+                                key={x}
+                                className="text-yellow-400"
+                            />
+                        );
+                    return <FaRegStar key={x} className="text-yellow-400" />;
                 })}
             </div>
         </div>

@@ -1,20 +1,19 @@
 "use client";
 import Link from "next/link";
-import "flowbite";
+
 import { useSelector, useDispatch } from "react-redux";
-import { Navbar, Nav, Container, NavDropdown, Badge } from "react-bootstrap";
-import { useGetProfileQuery } from "../slices/apiSlice";
+import { useGetProfileQuery, useLogoutUserMutation } from "../slices/apiSlice";
 import { setCredentials, logout } from "../slices/authSlice";
 import { Menu, Transition } from "@headlessui/react";
-
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
-import { Fragment } from "react";
+import { Fragment, useEffect, useState } from "react";
 
 // function classNames(...classes) {
 //     return classes.filter(Boolean).join(" ");
 // }
 
 const Header = () => {
+    const [isClient, setIsClient] = useState(false);
     // console.log("This is Header", process.env.NEXT_PUBLIC_BASE_URL);
     const dispatch = useDispatch();
     const { cartItems } = useSelector((state) => state.cart);
@@ -22,14 +21,21 @@ const Header = () => {
     let itemQty = 0;
     cartItems.map((x) => (itemQty = itemQty + x.qty));
 
+    useEffect(() => {
+        setIsClient(true);
+    }, []);
+
+    const [logoutApiCall] = useLogoutUserMutation();
+
     // const { data, isLoading, error } = useGetProfileQuery();
 
     const { userInfo } = useSelector((state) => state.auth);
-    console.log(userInfo);
+    // console.log(userInfo);
     // console.log(userInfo);
 
-    const logoutHandler = (e) => {
+    const logoutHandler = async (e) => {
         e.preventDefault();
+        await logoutApiCall().unwrap();
         dispatch(logout());
     };
 
@@ -57,14 +63,18 @@ const Header = () => {
                                 Search
                             </button>
                         </form>
-                        <Link className="self-center" href="/cart">
-                            Cart{" "}
-                            <Badge pill bg="success">
-                                {cartItems.reduce((a, c) => a + c.qty, 0)}
-                            </Badge>
-                        </Link>
 
-                        {userInfo ? (
+                        {cartItems.length > 0 && isClient ? (
+                            <Link className="self-center" href="/cart">
+                                Cart {cartItems.reduce((a, c) => a + c.qty, 0)}
+                            </Link>
+                        ) : (
+                            <Link className="self-center" href="/cart">
+                                Cart
+                            </Link>
+                        )}
+
+                        {userInfo && isClient ? (
                             <Menu
                                 as="div"
                                 className="relative self-center text-left"
