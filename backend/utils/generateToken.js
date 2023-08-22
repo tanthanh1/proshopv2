@@ -7,7 +7,7 @@ const generateToken = (res, userId) => {
 
     res.cookie("jwt", token, {
         httpOnly: true,
-        domain: "https://proshopv2.vercel.app",
+        domain: "proshopv2.vercel.app",
         secure: process.env.NODE_ENV !== "development", // Use secure cookies in production
         sameSite: "Lax", // Prevent CSRF attacks
         maxAge: 30 * 24 * 60 * 60 * 1000, // 30 days
