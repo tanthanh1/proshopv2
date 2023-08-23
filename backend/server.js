@@ -33,6 +33,7 @@ app.use(function (req, res, next) {
     res.header(
         "Access-Control-Allow-Origin",
         // "*"
+        //
         // "https://proshopv2-git-main-tanthanh1.vercel.app"
         process.env.CORS_URL
     );
@@ -41,7 +42,7 @@ app.use(function (req, res, next) {
         "Access-Control-Allow-Methods",
         "POST, PUT, GET, OPTIONS,DELETE"
     );
-    // res.header("Access-Control-Allow-Credentials");
+
     res.header(
         "Access-Control-Allow-Headers",
         "Origin, X-Requested-With, Content-Type, Accept"
