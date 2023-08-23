@@ -9,7 +9,7 @@ const generateToken = (res, userId) => {
         httpOnly: true,
         // domain: ".vercel.app",
         secure: process.env.NODE_ENV !== "development", // Use secure cookies in production
-        sameSite: "lax", // Prevent CSRF attacks
+        sameSite: "none", // Prevent CSRF attacks
         maxAge: 30 * 24 * 60 * 60 * 1000, // 30 days
     });
 };
